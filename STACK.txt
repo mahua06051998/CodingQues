@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Max 10
+
+int main() {
+    // printf("Hello World!");
+    int top = -1;
+    int ch;
+    int arr[Max];
+    // int t=1;
+    int t = 1;
+    while(t){
+        printf("\n1 to push\n");
+        printf("2 to pop\n");
+        printf("3 to display\n");
+        printf("4 to exit\n");
+        printf("Enter the no.\n");
+        scanf("%d",&ch);
+        switch(ch)
+           {
+            case(1):if(top == Max-1) {printf("Stack Overflow");}
+                    else{
+                    printf("Enter the number to push\n");
+                    int data;
+                    scanf("%d",&data);
+                    top = top+1;
+                    arr[top] = data;
+                    }
+                    break;
+           case(2):
+               if(top == -1) {
+                    printf("Stack underflow");
+               }
+                else {
+                       int d;
+                       d = arr[top];
+                       printf("%d",d);
+                       top--;
+                   }
+                   break;
+            case(3):
+                    for(int i = 0;i<=top;i++) {
+                        printf("%d ",arr[i]);
+                    }
+                    break;
+            case(4):
+                    t=0;
+                    break;
+        }
+    }
+}
