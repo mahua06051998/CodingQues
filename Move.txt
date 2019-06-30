@@ -1,0 +1,47 @@
+#include <iostream>
+#include<cstring>
+#include<algorithm>
+#include<string>
+using namespace std;
+int max_dist(string s){
+    int dist = 0;
+    int max_ = 0;
+    int count_A=0;
+    int count_C =0;
+    int count_s =0;
+
+    for(int i=0;i<s.length();i++){
+        if(s[i] == 'A')
+            count_A++;
+        if(s[i] == 'C')
+           count_C++;
+        else
+          count_s++;
+    }
+    // cout<< count_A <<" "<< count_C;
+    if(count_A > count_C && count_s >0)
+       std::replace(s.begin(),s.end(),'?','A');
+    else {
+       if(count_s > 0)
+         std::replace(s.begin(),s.end(),'?','C');
+    }
+   
+ 
+    for(int i=0;i<s.length();i++){
+        if(s[i] == 'A'){
+            dist++;
+        }
+        else
+           dist--;
+        if(max_ < abs(dist))
+           max_ = abs(dist);
+
+    }
+    return max_;
+}
+int main() {
+    string s;
+    cin >> s;
+    cout << max_dist(s);
+    // cout<<"Hello World!";
+}
